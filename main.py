@@ -1,5 +1,7 @@
 import os
 import yaml
+import time
+
 
 from titan.gitops import collect_resources_from_config
 
@@ -61,8 +63,9 @@ def main():
         print("=" * 80)
         print(yaml.dump(violated_policy))
         print("=" * 80)
+        time.sleep(1)
         raise Exception(
-            "Role assignment hedge_fund_analyst to user d.gray (tag:team=private_equity) violates team-restricted-roles policy"
+            "Role assignment hedge_fund_analyst (tag:team=hedge_fund) to user d.gray (tag:team=private_equity) violates team-restricted-roles policy"
         )
     print("[✅] Policy check passed")
 
