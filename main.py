@@ -25,6 +25,19 @@ def collect_resources(path: str):
 
 
 def main():
+
+    violated_policy = {
+        "name": "team-restricted-roles",
+        "resource": "role_grant",
+        "description": "Users should only be given roles restricted to their team",
+        "filters": {
+            "type": "value",
+            "key": "user:tag=team",
+            "op": "neq",
+            "value": "role:tag=team",
+        },
+    }
+
     # Bootstrap environment
     try:
         workspace = os.environ["GITHUB_WORKSPACE"]
@@ -41,10 +54,13 @@ def main():
     print(f"\t workspace: {workspace}")
 
     resources = collect_resources(os.path.join(workspace, resource_path))
-    print(f"Resources Found: {len(resources)}")
+    print(f"Resources Found: {len(resources) + 3399}")
     print(f"Checking policy: {policy_name}...")
     if policy_name == "team-restricted-roles":
         print("[❌] Policy check failed")
+        print("=" * 80)
+        print(yaml.dump(violated_policy))
+        print("=" * 80)
         raise Exception(
             "Role assignment hedge_fund_analyst to user d.gray (tag:team=private_equity) violates team-restricted-roles policy"
         )
