@@ -41,10 +41,13 @@ def main():
 
     resources = collect_resources(os.path.join(workspace, resource_path))
     print(f"Resources Found: {len(resources)}")
+    print(f"Checking policy: {policy_name}...")
     if policy_name == "team-restricted-roles-policy":
+        print("[❌] Policy check failed")
         raise Exception(
             "Role assignment private_equity_analyst to user j.simmons (team=hedge fund) violates policy team-restricted-roles-policy"
         )
+    print("[✅] Policy check passed")
 
 
 if __name__ == "__main__":
