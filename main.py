@@ -18,7 +18,8 @@ def collect_resources(path: str):
         with open(file, "r") as f:
             print(f"Reading config file: {file}")
             config = yaml.safe_load(f)
-            resources.extend(collect_resources_from_config(config))
+            if config:
+                resources.extend(collect_resources_from_config(config))
 
     return resources
 
