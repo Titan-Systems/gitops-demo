@@ -23,20 +23,13 @@ def collect_resources(path: str):
     return resources
 
 
-def str_to_bool(s: str) -> bool:
-    s = s.lower()
-    if s not in {"true", "false"}:
-        raise ValueError(f"Invalid value for boolean: {s}")
-    return s == "true"
-
-
 def main():
     # Bootstrap environment
     try:
         workspace = os.environ["GITHUB_WORKSPACE"]
 
         # Inputs
-        policy_name = str_to_bool(os.environ["INPUT_POLICY-NAME"])
+        policy_name = os.environ["INPUT_POLICY-NAME"]
         resource_path = os.environ["INPUT_RESOURCE-PATH"]
     except KeyError as e:
         raise ValueError(f"Missing environment variable: {e}") from e
