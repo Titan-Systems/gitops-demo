@@ -1,0 +1,17 @@
+name: 'Titan Demo'
+author: Titan Systems, Inc
+description: 'Titan Github Action'
+inputs:
+  resource-path:
+    description: 'Path to the resource configuration in the repo'
+    required: true
+    default: '.'
+  policy-name:
+    description: 'Name of the policy to check'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'upload-cloud'
+  color: 'orange'
