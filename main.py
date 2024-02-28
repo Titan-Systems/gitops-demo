@@ -60,6 +60,9 @@ def main():
     print(f"Checking policy: {policy_name}...")
     if policy_name == "team-restricted-roles":
         print("[❌] Policy check failed")
+        print(
+            "Role assignment hedge_fund_analyst (tag:team=hedge_fund) to user d.gray (tag:team=private_equity) violates team-restricted-roles policy"
+        )
         print("=" * 80)
         print(yaml.dump(violated_policy))
         print("=" * 80)
