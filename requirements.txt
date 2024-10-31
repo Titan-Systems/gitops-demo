@@ -1,2 +1,0 @@
-pyyaml
-titan @ git+https://github.com/Titan-Systems/titan.git@feature/2024-02-24-gitops
