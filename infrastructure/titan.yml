@@ -1,4 +1,4 @@
 databases:
-  - titan_demo
-  schemas:
-    - titan_demo_schema
+  - name: titan_demo
+    schemas:
+      - name: titan_demo_schema
