@@ -11,6 +11,10 @@ users:
     login_name: m.brown
     roles:
       - hedge_fund_admin
+  - name: j.smith@arrakisinvestments.com
+    login_name: j.smith
+    roles:
+      - hedge_fund_data_eng
 
 roles:
   - name: hedge_fund_analyst
