@@ -11,12 +11,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Snowflake with Titan
-        uses: Titan-Systems/titan-core-action@feature/config-path
+        uses: Titan-Systems/titan-core-action@main
         with:
           run-mode: 'create-or-update'
           resource-path: './infrastructure'
-          allowlist: 'database,schema'
-          dry-run: 'true'
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}

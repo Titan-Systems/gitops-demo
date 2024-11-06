@@ -1,4 +1,56 @@
+users:
+  - name: j.doe@arrakisinvestments.com
+    login_name: j.doe
+    roles:
+      - hedge_fund_analyst
+  - name: s.smith@arrakisinvestments.com
+    login_name: s.smith
+    roles:
+      - hedge_fund_manager
+  - name: m.brown@arrakisinvestments.com
+    login_name: m.brown
+    roles:
+      - hedge_fund_admin
+
+roles:
+  - name: hedge_fund_analyst
+  - name: hedge_fund_manager
+  - name: hedge_fund_admin
+  - name: hedge_fund_data_eng
+
+
+role_grants:
+  - role: hedge_fund_data_eng
+    roles:
+      - hedge_fund_admin
+  - role: hedge_fund_analyst
+    roles:
+      - hedge_fund_admin
+  - role: hedge_fund_manager
+    roles:
+      - hedge_fund_admin
+
+
 databases:
-  - name: titan_demo
+  - name: hedge_fund_db
     schemas:
-      - name: titan_demo_schema
+      - name: opportunistic
+      - name: core_plus
+      - name: risk_management
+      - name: portfolio_analysis
+      - name: trading
+      - name: client_relations
+      - name: regulatory_compliance
+
+warehouses:
+  - name: hedge_fund_wh
+    auto_suspend: 60
+    owner: SYSADMIN
+  - name: hedge_fund_data_eng_wh
+    auto_suspend: 180
+    owner: SYSADMIN
+
+
+
+grants:
+  - GRANT USAGE ON WAREHOUSE hedge_fund_data_eng_wh TO ROLE hedge_fund_data_eng
