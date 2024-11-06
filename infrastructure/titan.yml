@@ -15,12 +15,15 @@ users:
     login_name: j.smith
     roles:
       - hedge_fund_data_eng
+      - hedge_fund_data_science
 
 roles:
   - name: hedge_fund_analyst
+    comment: This role is for analysts on the Hedge Fund team
   - name: hedge_fund_manager
   - name: hedge_fund_admin
   - name: hedge_fund_data_eng
+  - name: hedge_fund_data_science
 
 
 role_grants:
@@ -31,6 +34,9 @@ role_grants:
     roles:
       - hedge_fund_admin
   - role: hedge_fund_manager
+    roles:
+      - hedge_fund_admin
+  - role: hedge_fund_data_science
     roles:
       - hedge_fund_admin
 
