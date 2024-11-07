@@ -61,6 +61,12 @@ warehouses:
     owner: SYSADMIN
 
 
+secrets:
+  - name: salesforce_api_key
+    secret_type: GENERIC_STRING
+    secret_string: "{{ var.salesforce_api_key }}"
+    comment: Salesforce API key
+    owner: SYSADMIN
 
 grants:
   - GRANT USAGE ON WAREHOUSE hedge_fund_data_eng_wh TO ROLE hedge_fund_data_eng
