@@ -65,7 +65,7 @@ secrets:
   - name: salesforce_api_key
     secret_type: GENERIC_STRING
     secret_string: "{{ var.salesforce_api_key }}"
-    comment: Salesforce API key
+    comment: Salesforce API key.
     owner: SYSADMIN
 
 grants:
