@@ -51,6 +51,7 @@ databases:
       - name: trading
       - name: client_relations
       - name: regulatory_compliance
+      - name: reticulating_splines
 
 warehouses:
   - name: hedge_fund_wh
